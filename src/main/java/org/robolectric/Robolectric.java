@@ -256,7 +256,7 @@ public class Robolectric {
                 ShadowFilter.class,
                 ShadowFloatMath.class,
                 ShadowFragment.class,
-                ShadowFragmentActivity.class,
+                //ShadowFragmentActivity.class,
                 ShadowFragmentPagerAdapter.class,
                 ShadowFrameLayout.class,
                 ShadowGallery.class,
@@ -715,9 +715,9 @@ public class Robolectric {
         return (ShadowFragment) shadowOf_(instance);
     }
 
-    public static ShadowFragmentActivity shadowOf(FragmentActivity instance) {
-        return (ShadowFragmentActivity) shadowOf_(instance);
-    }
+    //public static ShadowFragmentActivity shadowOf(FragmentActivity instance) {
+    //    return (ShadowFragmentActivity) shadowOf_(instance);
+    //}
 
     public static ShadowFragmentPagerAdapter shadowOf(FragmentPagerAdapter instance) {
         return (ShadowFragmentPagerAdapter) shadowOf_(instance);
