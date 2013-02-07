@@ -87,6 +87,8 @@ public class ShadowView {
     private float alpha = 1.0f;
     private float scaleX = 1.0f;
     private float scaleY = 1.0f;
+    private float pivotX;
+    private float pivotY;
     private int hapticFeedbackPerformed = -1;
     private boolean onLayoutWasCalled;
 
@@ -1066,6 +1068,26 @@ public class ShadowView {
     @Implementation
     public float getScaleY() {
         return scaleY;
+    }
+
+    @Implementation
+    public void setPivotX(float pivotX) {
+        this.pivotX = pivotX;
+    }
+
+    @Implementation
+    public float getPivotX() {
+        return pivotX;
+    }
+
+    @Implementation
+    public void setPivotY(float pivotY) {
+        this.pivotY = pivotY;
+    }
+
+    @Implementation
+    public float getPivotY() {
+        return pivotY;
     }
 
     @Implementation
