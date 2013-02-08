@@ -21,7 +21,9 @@ public class ShadowAnimatorSet extends ShadowAnimator {
     @Implementation
     public void start() {
         for (Animator childAnimator : childAnimators) {
-            childAnimator.setDuration(duration);
+            if (duration != 0) {
+                childAnimator.setDuration(duration);
+            }
             childAnimator.start();
         }
     }
