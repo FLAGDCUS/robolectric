@@ -41,4 +41,7 @@ public class ShadowAnimatorSet extends ShadowAnimator {
         }
     }
 
+    public Animator[] getChildren() {
+        return childAnimators;
+    }
 }

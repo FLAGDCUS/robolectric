@@ -1,5 +1,6 @@
 package com.xtremelabs.robolectric.shadows;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.animation.TimeInterpolator;
@@ -12,6 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static com.xtremelabs.robolectric.Robolectric.shadowOf;
 import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -72,5 +74,13 @@ public class AnimatorSetTest {
         subject.playTogether(alphaAnimator);
         subject.start();
         assertThat(alphaAnimator.getDuration(), equalTo(99L));
+    }
+
+    @Test
+    public void getChildren_shouldGiveYouAllAnimators() throws Exception {
+        subject.playTogether(alphaAnimator, scaleAnimator);
+        assertThat(shadowOf(subject).getChildren().length, equalTo(2));
+        assertThat(shadowOf(subject).getChildren()[0], equalTo((Animator) alphaAnimator));
+        assertThat(shadowOf(subject).getChildren()[1], equalTo((Animator) scaleAnimator));
     }
 }
